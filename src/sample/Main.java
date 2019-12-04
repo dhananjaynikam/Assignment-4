@@ -213,7 +213,9 @@ public class Main extends Application {
         });
 
         tangle.setOnAction(e -> {
-            DisplayGraphAndTangle.displayTangle(rowCycle,columnCycle);
+            ArrayList<Integer> tempColumn = new ArrayList<>();
+            tempColumn.addAll(columnCycle);
+            DisplayGraphAndTangle.displayTangle(rowCycle,tempColumn);
         });
 
         gameScene = new Scene(border,800,690);

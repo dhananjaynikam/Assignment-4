@@ -25,7 +25,7 @@ public class DisplayGraphAndTangle {
         Canvas canvas = new Canvas(300, 300);
         GraphicsContext gc = canvas.getGraphicsContext2D();
         wrapperPane.getChildren().addAll(canvas);
-        int sides = 4;
+        int sides = rowCycle.size();
         double centerX = 150;
         double centerY = 150;
         double radius = 80;
@@ -173,7 +173,7 @@ public class DisplayGraphAndTangle {
             }
 
         }
-
+        gc.setLineWidth(1.5);
         for (Map.Entry item : pointsHM.entrySet()) {
             double red = myRandom(0, 1);
             double green = myRandom(0, 1);
