@@ -143,9 +143,6 @@ public class DisplayGraphAndTangle {
             }
             calculateDiff(diff, rowCycle, sourcePerm);
         }
-        for (ArrayList<Integer> item : tangle) {
-            System.out.println(item);
-        }
         ArrayList<Point> points = new ArrayList<>();
 
         for (int i = 0, y = 20; i < tangle.size(); i++, y = y + 20) {
