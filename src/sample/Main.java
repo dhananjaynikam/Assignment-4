@@ -68,6 +68,9 @@ public class Main extends Application {
             window.setScene(gameScene);
         });
 
+        learn.setOnAction(e -> {
+            LearnWindow.display();
+        });
         Label introLabel = new Label("Assignment - 4");
         introLabel.setStyle("-fx-font-size: 4em; -fx-background-color: #ffffff; ");
         VBox centreStartScene = new VBox();
@@ -103,8 +106,10 @@ public class Main extends Application {
         Button gridComplete = new Button("SHOW DETAILS");
         Button permutationGraph = new Button("PERMUTATION GRAPH");
         Button tangle = new Button("TANGLE");
+        Button clear = new Button("CLEAR");
+        Button home = new Button("HOME");
         VBox vbox = new VBox(10);
-        vbox.getChildren().addAll(rowCycleLabel,colCycleLable,factoradicRow,factoradicCol,gridSizeHBox,gridComplete,permutationGraph,tangle);
+        vbox.getChildren().addAll(rowCycleLabel,colCycleLable,factoradicRow,factoradicCol,gridSizeHBox,gridComplete,permutationGraph,tangle,clear,home);
         Insets insets = new Insets(10,10,10,10);
         Pane wrapperPane = new Pane();
         Canvas canvas = new Canvas(325,325);
@@ -121,7 +126,7 @@ public class Main extends Application {
         wrapperPane2.setMaxWidth(325);
         wrapperPane2.setBackground(new Background(new BackgroundFill(Color.WHITE,CornerRadii.EMPTY,Insets.EMPTY)));
         draw(canvas2);
-        GraphicsContext gc2 = canvas.getGraphicsContext2D();
+        GraphicsContext gc2 = canvas2.getGraphicsContext2D();
         wrapperPane2.getChildren().addAll(canvas2);
         ArrayList<Label> labelList1 = new ArrayList<>();
         ArrayList<Label> labelList2 = new ArrayList<>();
@@ -216,6 +221,49 @@ public class Main extends Application {
             ArrayList<Integer> tempColumn = new ArrayList<>();
             tempColumn.addAll(columnCycle);
             DisplayGraphAndTangle.displayTangle(rowCycle,tempColumn);
+        });
+
+        clear.setOnAction(e->{
+            isFirstClick = true;
+            isRowGreater = true;
+            isColGreater = true;
+            gridSize =0;
+            isGridComplete = false;
+            pixelToPid.clear();
+            pixelList.clear();
+            gc.clearRect(0,0,canvas.getWidth(),canvas.getHeight());
+            gc2.clearRect(0,0,canvas2.getWidth(),canvas2.getHeight());
+            for(Label l : labelList1){
+                l.setText("");
+            }
+            for(Label l : labelList2){
+                l.setText("");
+            }
+            labelList1.clear();
+            labelList2.clear();
+            draw(canvas);
+            draw(canvas2);
+        });
+
+        home.setOnAction(e -> {
+            isFirstClick = true;
+            isRowGreater = true;
+            isColGreater = true;
+            gridSize =0;
+            isGridComplete = false;
+            pixelToPid.clear();
+            pixelList.clear();
+            gc.clearRect(0,0,canvas.getWidth(),canvas.getHeight());
+            gc2.clearRect(0,0,canvas2.getWidth(),canvas2.getHeight());
+            for(Label l : labelList1){
+                l.setText("");
+            }
+            for(Label l : labelList2){
+                l.setText("");
+            }
+            labelList1.clear();
+            labelList2.clear();
+            window.setScene(startPageScene);
         });
 
         gameScene = new Scene(border,800,690);
