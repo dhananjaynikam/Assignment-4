@@ -104,7 +104,7 @@ public class Main extends Application {
         Button permutationGraph = new Button("PERMUTATION GRAPH");
         Button tangle = new Button("TANGLE");
         VBox vbox = new VBox(10);
-        vbox.getChildren().addAll(rowCycleLabel,colCycleLable,factoradicRow,factoradicCol,gridSizeHBox,gridComplete,permutationGraph);
+        vbox.getChildren().addAll(rowCycleLabel,colCycleLable,factoradicRow,factoradicCol,gridSizeHBox,gridComplete,permutationGraph,tangle);
         Insets insets = new Insets(10,10,10,10);
         Pane wrapperPane = new Pane();
         Canvas canvas = new Canvas(325,325);
