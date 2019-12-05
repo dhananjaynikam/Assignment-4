@@ -93,10 +93,10 @@ public class Main extends Application {
         Scene gameScene;
         HashMap<Point2D,PositionId> pixelToPid = new HashMap<>();
         ArrayList<Point2D> pixelList = new ArrayList<>();
-        Label rowCycleLabel = new Label("Row cycle:");
-        Label colCycleLable = new Label("Column cycle:");
-        Label factoradicRow = new Label("Factoradic of row cycle:");
-        Label factoradicCol = new Label("Factoradic of column cycle:");
+        Label rowCycleLabel = new Label("Row permutation:");
+        Label colCycleLable = new Label("Column permutation:");
+        Label factoradicRow = new Label("Factoradic of row permutation:");
+        Label factoradicCol = new Label("Factoradic of column permutation:");
         HBox gridSizeHBox = new HBox(10);
         Label gridSizeTextLabel = new Label("Enter an even size of the grid (4-12)");
         TextField gridSizeText = new TextField();
@@ -201,12 +201,12 @@ public class Main extends Application {
         gridComplete.setOnAction(e -> {
             if(isGridComplete){
                 makeRowAndColumnCycles();
-                rowCycleLabel.setText("Row cycle= "+arraysListToString(rowCycle));
-                colCycleLable.setText("Column cycle= "+arraysListToString(columnCycle));
+                rowCycleLabel.setText("Row permutation= "+arraysListToString(rowCycle));
+                colCycleLable.setText("Column permutation= "+arraysListToString(columnCycle));
                 getReversePoints();
                 plotReverseGrid(canvas2,pixelToPid);
-                factoradicRow.setText("Factoradic of row cycle= " + getFactoradic(rowCycle));
-                factoradicCol.setText("Factoradic of column cycle= " + getFactoradic(columnCycle));
+                factoradicRow.setText("Factoradic of row permutation= " + getFactoradic(rowCycle));
+                factoradicCol.setText("Factoradic of column permutation= " + getFactoradic(columnCycle));
             }else {
                 SelectionBox.display("ERROR","Complete all the steps", "OK",null);
             }
