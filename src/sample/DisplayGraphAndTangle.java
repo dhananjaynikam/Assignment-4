@@ -17,7 +17,7 @@ public class DisplayGraphAndTangle {
     public static void displayGraph(HashMap<Integer, ArrayList<Integer>> permutationRowGraph, HashMap<Integer, ArrayList<Integer>> permutationColGraph, ArrayList<Integer> rowCycle) {
         Stage window = new Stage();
         ArrayList<Point> points = new ArrayList<>();
-        window.initModality(Modality.APPLICATION_MODAL);
+        //window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Permutation Graph");
         Pane wrapperPane = new Pane();
         wrapperPane.setMaxWidth(300);
@@ -28,7 +28,7 @@ public class DisplayGraphAndTangle {
         int sides = rowCycle.size();
         double centerX = 150;
         double centerY = 150;
-        double radius = 80;
+        double radius = 130;
         double[] XPoints = new double[sides];
         double[] YPoints = new double[sides];
         final double angleStep = Math.PI * 2 / sides;
@@ -51,9 +51,9 @@ public class DisplayGraphAndTangle {
         final String label = "ROW permutation graph is RED\nCOLUMN permutation graph is green";
         Label indexLabel = new Label(label);
         indexLabel.setLayoutX(0);
-        indexLabel.setLayoutY(260);
+        indexLabel.setLayoutY(460);
         wrapperPane.getChildren().addAll(indexLabel);
-        Scene scene = new Scene(wrapperPane, 300, 300);
+        Scene scene = new Scene(wrapperPane, 300, 500);
         window.setScene(scene);
         window.show();
     }
@@ -115,13 +115,13 @@ public class DisplayGraphAndTangle {
 
     public static void displayTangle(ArrayList<Integer> rowCycle, ArrayList<Integer> sourcePerm) {
         Stage window = new Stage();
-        window.initModality(Modality.APPLICATION_MODAL);
+        //window.initModality(Modality.APPLICATION_MODAL);
         ArrayList<ArrayList<Integer>> tangle = new ArrayList<>();
         window.setTitle("Tangle");
         Pane wrapperPane = new Pane();
         wrapperPane.setMaxWidth(300);
-        wrapperPane.setMaxHeight(300);
-        Canvas canvas = new Canvas(300, 300);
+        wrapperPane.setMaxHeight(400);
+        Canvas canvas = new Canvas(300, 400);
         GraphicsContext gc = canvas.getGraphicsContext2D();
         wrapperPane.getChildren().addAll(canvas);
 
@@ -184,7 +184,7 @@ public class DisplayGraphAndTangle {
             }
         }
 
-        Scene scene = new Scene(wrapperPane,300,300);
+        Scene scene = new Scene(wrapperPane,300,400);
         window.setScene(scene);
         window.show();
     }
